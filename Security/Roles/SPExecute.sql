@@ -1,0 +1,3 @@
+CREATE ROLE [SPExecute]
+AUTHORIZATION [dbo]
+GO
