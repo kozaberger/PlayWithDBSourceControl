@@ -4,9 +4,11 @@ SET ANSI_NULLS ON
 GO
 CREATE PROCEDURE [dbo].[spAccountListGet]
 @iUserID int
-WITH EXEC AS CALLER
+
 AS
-select * from tAccount
+select iID,vName
+  ,(select t.vText from tRefFileItem t where t.iID=a.iPrimaryAddressCountryID)
+from tAccount a
 GO
 GRANT EXECUTE ON  [dbo].[spAccountListGet] TO [SPExecute]
 GO
